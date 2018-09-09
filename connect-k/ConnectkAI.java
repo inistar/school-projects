@@ -16,8 +16,6 @@ import connectK.CKPlayer;
 
 /**
  * This Class represents an AI that was built to play the connect-K game.
- * 
- *
  */
 public class DSensorAI extends CKPlayer {
 
@@ -38,8 +36,8 @@ public class DSensorAI extends CKPlayer {
 	}
 
 	/**
-	 * IDS increases the depth of the board each iteration and stores the best 
-	 * point to be made. 
+	 * IDS increases the depth of the board each iteration and stores the best
+	 * point to be made.
 	 * @param state
 	 * @return
 	 */
@@ -169,18 +167,17 @@ public class DSensorAI extends CKPlayer {
 						}
 						currClone = currClone.placePiece(new Point(p.x, p.y), this.myPlayer);
 						
-	
 						if (currClone.winner() == this.myPlayer)
 						{
 							maxObj[0] = Integer.MIN_VALUE;
 							maxObj[1] = new Point(p.x, p.y);
 							return maxObj;
 						}
-						
+
 						if(state.gravityEnabled()){ currObj = alphaBetaPruning(currClone, depth+1, maxDepth, alpha, beta, relBestPath); }
 						else{ currObj = alphaBetaPruning(currClone, depth+1, maxDepth, alpha, beta, relBestPath); }
 						currClone = currClone.placePiece(new Point(p.x, p.y), (byte)0);
-						
+
 						//update the maxObj
 						if(firstTime){
 							firstTime = false;
@@ -251,7 +248,6 @@ public class DSensorAI extends CKPlayer {
 				}
 			}
 			
-//			p.addAll(s);
 			return p;
 		}
 
